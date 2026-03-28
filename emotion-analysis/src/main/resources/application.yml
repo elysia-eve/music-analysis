@@ -1,0 +1,60 @@
+#spring.application.name=emotion-analysis
+#
+#server.port=8080
+#
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://localhost:3306/emotion_analysis?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+#spring.datasource.username=root
+#spring.datasource.password=123456
+#
+#mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+#mybatis-plus.configuration.map-underscore-to-camel-case=true
+#mybatis-plus.global-config.db-config.id-type=auto
+
+# ????spring???
+spring:
+  application:
+        name: emotion-analysis
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/music_emotion?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+  ai:
+    openai:
+      api-key: sk-28f615bab62640058bbb6934454946bc
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+          temperature: 0.7
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# ????
+server:
+  port: 8080
+
+# mybatis-plus????
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    global-config:
+        db-config:
+            id-type: auto
+
+minio:
+  endpoint: http://localhost:9005 # MinIO 端点
+  accessKey: root #  MinIO Access Key
+  secretKey: 123456abc # MinIO Secret Key
+  bucket: vibe-music-data # 确认 Bucket 名称与你创建的一致
+
+music:
+  python-executable: D:/anaconda/envs/pytorch-gpu/python.exe
+  feature-extractor: D:/bishe/scripts/feature_extractor.py

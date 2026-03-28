@@ -1,0 +1,27 @@
+package com.music.emotion.service;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public interface MinioService {
+    /**
+     * 上传文件到 MinIO
+     * @param file   要上传的文件
+     * @param folder 存储文件的目录
+     * @return 文件访问 URL
+     */
+    String uploadFile(MultipartFile file, String folder);
+
+    /**
+     * 删除 MinIO 文件
+     * @param fileUrl 文件 URL
+     */
+    void deleteFile(String fileUrl);
+
+    /**
+     * 计算文件的 Hash 值
+     * @param file 要计算 Hash 的文件
+     * @return 文件 Hash 值
+     */
+    public String calculateHash(MultipartFile file);
+
+}
